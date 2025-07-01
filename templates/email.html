@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}فحص صحة البريد الإلكتروني | أدوات أونلاين{% endblock %}
+
+{% block content %}
+  <div class="text-center mb-4">
+    <a href="/" class="btn btn-outline-primary">← رجوع للرئيسية</a>
+  </div>
+
+  <h2 class="text-center mb-4" style="color:#4b2995; font-weight:700;">
+    ✅ أداة فحص صحة البريد الإلكتروني
+  </h2>
+
+  <form method="post" action="/email" class="mx-auto" style="max-width: 500px;">
+    <div class="mb-3">
+      <input type="email" name="email" class="form-control form-control-lg text-center" 
+             placeholder="📧 أدخل بريدك الإلكتروني هنا" required value="{{ email }}">
+    </div>
+    <button type="submit" class="btn btn-primary w-100" style="font-size: 1.1rem;">
+      🔍 فحص البريد
+    </button>
+  </form>
+
+  {% if result %}
+    <div class="alert {% if result[0] == 'success' %}alert-success{% else %}alert-danger{% endif %} mt-4 text-center" role="alert" style="font-weight: 600;">
+      {{ result[1] }}
+    </div>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}حل المعادلات | أدوات أونلاين{% endblock %}
+
+{% block content %}
+  <h2 class="text-center mb-4" style="color:#4b2995; font-weight:700;">🧮 حل المعادلات من الدرجة الأولى والثانية</h2>
+
+  <form method="post" class="mb-4">
+    <div class="mb-3">
+      <label for="equation_type" class="form-label">نوع المعادلة:</label>
+      <select id="equation_type" name="equation_type" class="form-select" required>
+        <option value="">-- اختر --</option>
+        <option value="linear" {% if equation_type == 'linear' %}selected{% endif %}>معادلة من الدرجة الأولى (ax + b = 0)</option>
+        <option value="quadratic" {% if equation_type == 'quadratic' %}selected{% endif %}>معادلة من الدرجة الثانية (ax² + bx + c = 0)</option>
+      </select>
+    </div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-md-4">
+        <label for="a" class="form-label">معامل a:</label>
+        <input type="number" class="form-control" name="a" value="{{ a or '' }}" required>
+      </div>
+      <div class="col-md-4">
+        <label for="b" class="form-label">معامل b:</label>
+        <input type="number" class="form-control" name="b" value="{{ b or '' }}" required>
+      </div>
+      <div class="col-md-4" id="c-field" {% if equation_type != 'quadratic' %}style="display:none;"{% endif %}>
+        <label for="c" class="form-label">معامل c:</label>
+        <input type="number" class="form-control" name="c" value="{{ c or '' }}">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">🧮 حل المعادلة</button>
+  </form>
+
+  {% if result %}
+    <div class="alert alert-success text-center" role="alert">
+      {{ result }}
+    </div>
+  {% endif %}
+
+  <script>
+    // إظهار حقل c فقط في المعادلات من الدرجة الثانية
+    const equationType = document.getElementById("equation_type");
+    const cField = document.getElementById("c-field");
+    equationType.addEventListener("change", function () {
+      if (this.value === "quadratic") {
+        cField.style.display = "block";
+      } else {
+        cField.style.display = "none";
+      }
+    });
+  </script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}توليد QR Code{% endblock %}
+
+{% block content %}
+
+<div class="container" style="max-width:480px; margin:auto;">
+
+  <h1 class="mb-4" style="color:#5a3583; font-weight:700;">توليد QR Code</h1>
+
+  <form method="post" novalidate>
+    <input type="text" name="input_text" value="{{ input_text }}" placeholder="أدخل النص أو الرابط هنا" required
+           style="font-size:1.1rem; padding:12px 15px; border:2px solid #5a3583; border-radius:10px; width:100%; transition:border-color 0.3s ease;" 
+           onfocus="this.style.borderColor='#764ba2'; this.style.boxShadow='0 0 8px #764ba2aa';" 
+           onblur="this.style.borderColor='#5a3583'; this.style.boxShadow='none';"/>
+    <button type="submit" 
+            style="margin-top:18px; padding:12px 35px; font-size:1.1rem; font-weight:600; background:#764ba2; color:#fff; border:none; border-radius:12px; cursor:pointer; width:100%;">
+      إنشاء
+    </button>
+  </form>
+
+  {% if qr_img_data %}
+  <div class="qr-result mt-4 text-center">
+    <img src="{{ qr_img_data }}" alt="QR Code" style="max-width:250px; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.15);" />
+    <br />
+    <a href="{{ qr_img_data }}" download="qr_code.png" 
+       class="btn btn-primary mt-3" 
+       style="background-color:#5a3583; border:none; transition: background-color 0.3s ease;"
+       onmouseover="this.style.backgroundColor='#764ba2';" 
+       onmouseout="this.style.backgroundColor='#5a3583';">
+      تحميل QR Code
+    </a>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}تحويل النص إلى صوت | أدوات أونلاين{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center" style="min-height: 70vh; padding: 40px 20px;">
+  <div style="max-width: 600px; width: 100%; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);">
+    <h2 class="mb-4 text-center" style="color:#5a3583; font-weight:700; font-size:2rem;">
+      🔊 تحويل النص إلى صوت
+    </h2>
+
+    <form method="post" class="mb-4">
+      <textarea name="text" rows="7" class="form-control" placeholder="أدخل النص هنا..." required style="font-size: 1.1rem;"></textarea>
+
+      <label for="lang" class="form-label mt-3 fw-semibold">اختار اللغة:</label>
+      <select name="lang" id="lang" class="form-select mb-3" style="font-size: 1.1rem;">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="de">Deutsch</option>
+        <option value="it">Italiano</option>
+        <option value="ja">日本語</option>
+        <option value="zh-cn">中文</option>
+      </select>
+
+      <button type="submit" class="btn w-100" style="background: #764ba2; color: white; font-size: 1.2rem; font-weight: 700; padding: 14px 0; transition: background 0.3s ease;">
+        تحويل إلى صوت
+      </button>
+    </form>
+
+    {% if audio_file %}
+      <h5 class="text-center mb-3" style="color:#5a3583; font-weight:700;">استمع إلى الصوت:</h5>
+      <audio controls class="d-block mx-auto" style="max-width: 100%;">
+        <source src="{{ url_for('static', filename='results/' + audio_file) }}" type="audio/mpeg" />
+        متصفحك لا يدعم عنصر الصوت.
+      </audio>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}تحويل PDF إلى Word | أدوات أونلاين{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 75vh;">
+  <div class="p-5 bg-white shadow rounded-4" style="width: 100%; max-width: 600px;">
+    <div class="text-center mb-4">
+      <a href="/" class="btn btn-outline-primary btn-lg">← رجوع للرئيسية</a>
+    </div>
+
+    <h2 class="text-center mb-4" style="color:#4b2995; font-weight:700; font-size:2.5rem;">
+      📄 تحويل PDF إلى Word
+    </h2>
+
+    <form method="post" enctype="multipart/form-data" class="text-center">
+      <label for="pdf-file" class="d-block mb-3" style="cursor:pointer; font-weight:600; color:#764ba2;">
+        <i class="fas fa-file-upload mb-2" style="font-size:3.5rem;"></i><br>
+        <span style="font-size:1.3rem;">اضغط لاختيار ملف PDF</span>
+      </label>
+      <input
+        id="pdf-file"
+        class="file-input"
+        type="file"
+        name="pdf"
+        accept="application/pdf"
+        required
+        style="display:none;"
+      />
+
+      <button type="submit" class="btn mt-4 w-100 btn-lg fw-bold" style="background:#764ba2; color:white; padding:15px 0; font-size:1.3rem;">
+        🔁 تحويل الآن
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

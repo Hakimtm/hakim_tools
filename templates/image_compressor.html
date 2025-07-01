@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}📷 ضغط الصور | أدوات أونلاين{% endblock %}
+
+{% block content %}
+
+  <h2 class="text-center mb-4" style="color:#4b2995; font-weight:700;">
+    📷 ضغط الصور (JPG / PNG)
+  </h2>
+
+  <form method="POST" enctype="multipart/form-data" class="text-center mb-5">
+    <label for="image" class="d-block mb-3" style="cursor:pointer; font-weight:600; color:#764ba2;">
+      <i class="fas fa-image" style="font-size:3rem;"></i><br>
+      اختر صورة للضغط (JPG / PNG)
+    </label>
+    <input type="file" id="image" name="image" accept=".png,.jpg,.jpeg" required style="display:none;" onchange="previewImage(event)" />
+    <div id="preview-container" class="my-3" style="display: none;">
+      <p class="mb-2">📸 المعاينة قبل الضغط:</p>
+      <img id="preview" src="#" alt="Preview Image" class="img-fluid rounded shadow" style="max-width: 100%; height:auto;" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-3 w-100" style="font-size:1.2rem;">🔽 ضغط الصورة</button>
+  </form>
+
+  {% if image_url %}
+    <div class="text-center">
+      <h5 class="mb-3">📉 تم ضغط الصورة بنجاح!</h5>
+      <p>الحجم قبل: {{ original_size }} KB</p>
+      <p>الحجم بعد: {{ compressed_size }} KB</p>
+      <img src="{{ image_url }}" alt="Compressed Image" class="img-fluid rounded shadow" style="max-width: 100%; height:auto;" />
+      <br>
+      <a href="{{ image_url }}" download="compressed.jpg" class="btn btn-success mt-4">
+        ⬇️ تحميل الصورة المضغوطة
+      </a>
+    </div>
+  {% endif %}
+
+  <script>
+    function previewImage(event) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        const preview = document.getElementById('preview');
+        preview.src = reader.result;
+        document.getElementById('preview-container').style.display = 'block';
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+{% endblock %}

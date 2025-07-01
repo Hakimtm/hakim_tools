@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}حاسبة العمر{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 75vh;background:grey">
+  <div class="p-5 bg-white shadow rounded-4" style="width: 100%; max-width: 600px;">
+    <h1 class="text-center mb-4 fw-bold text-primary" style="font-size: 3rem;">🔢 حاسبة العمر</h1>
+
+    <form method="POST">
+      <div class="mb-4">
+        <label for="birth_date" class="form-label fs-5 fw-semibold">📅 أدخل تاريخ ميلادك:</label>
+        <input type="date" id="birth_date" name="birth_date"
+               class="form-control form-control-lg text-center" required />
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold">احسب الآن 🚀</button>
+    </form>
+
+    {% if age %}
+      <div class="alert alert-success mt-5 text-center fs-4">
+        🎉 عمرك هو <strong>{{ age.years }}</strong> سنة،
+        <strong>{{ age.months }}</strong> شهر و
+        <strong>{{ age.days }}</strong> يوم.
+      </div>
+    {% elif age is not none %}
+      <div class="alert alert-danger mt-4 text-center fs-5">
+        ❌ المرجو إدخال تاريخ صحيح.
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

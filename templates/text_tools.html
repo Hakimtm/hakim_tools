@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}تحويل النصوص | أدوات أونلاين{% endblock %}
+
+{% block content %}
+<div style="max-width: 700px; margin: auto; background: #fff; padding: 30px 25px; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.1);">
+  <h2 class="text-center mb-4" style="color:#4b2995; font-weight:700; font-size: 2rem;">
+    🔤 تحويل النصوص
+  </h2>
+
+  <form method="post" class="mb-4">
+    <div class="mb-3">
+      <label for="input_text" class="form-label fw-semibold">النص الأصلي:</label>
+      <textarea id="input_text" name="input_text" class="form-control" rows="6" required style="font-size: 1.1rem;">{{ input_text }}</textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label fw-semibold">اختار نوع التحويل:</label>
+      <select name="action" class="form-select" required style="font-size: 1.1rem;">
+        <option value="" disabled {% if not action %}selected{% endif %}>-- اختر --</option>
+        <option value="uppercase" {% if action == 'uppercase' %}selected{% endif %}>تحويل إلى حروف كبيرة</option>
+        <option value="lowercase" {% if action == 'lowercase' %}selected{% endif %}>تحويل إلى حروف صغيرة</option>
+        <option value="capitalize" {% if action == 'capitalize' %}selected{% endif %}>تحويل أول حرف لكل كلمة إلى كبير</option>
+        <option value="remove_spaces" {% if action == 'remove_spaces' %}selected{% endif %}>إزالة المسافات الزائدة</option>
+        <option value="reverse" {% if action == 'reverse' %}selected{% endif %}>عكس النص</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn w-100" style="background:#764ba2; color:white; font-weight:700; font-size:1.2rem; padding: 12px 0;">
+      🔁 تحويل النص
+    </button>
+  </form>
+
+  {% if result %}
+    <div class="mb-3">
+      <label for="result_text" class="form-label fw-semibold">النص المحول:</label>
+      <textarea id="result_text" class="form-control" rows="6" readonly style="font-size: 1.1rem;">{{ result }}</textarea>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

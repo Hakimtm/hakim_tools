@@ -1,0 +1,5 @@
+flask
+pillow
+pdf2image
+language-tool-python
+# زيد المكتبات اللي مستعمل فالأدوات ديالك

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}حاسبة المعادلات الرياضية | أدوات أونلاين{% endblock %}
+
+{% block content %}
+  <h2 class="text-center mb-4" style="color:#4b2995; font-weight:700;">🧮 حاسبة المعادلات الرياضية البسيطة</h2>
+
+  {% if error %}
+    <div class="alert alert-danger text-center">{{ error }}</div>
+  {% endif %}
+
+  <form method="post" class="mx-auto" style="max-width: 400px;">
+    <div class="mb-3">
+      <input type="text" name="expression" class="form-control form-control-lg" placeholder="أدخل المعادلة (مثال: 2 + 3 * 4)" value="{{ expression|default('') }}" required />
+    </div>
+    <button type="submit" class="btn btn-primary w-100" style="font-weight: 600; font-size: 1.2rem;">
+      حساب
+    </button>
+  </form>
+
+  {% if result is not none %}
+    <div class="result-box mt-4 text-center" style="font-size: 1.4rem; font-weight: 700; color: #5a3583;">
+      النتيجة: {{ result }}
+    </div>
+  {% endif %}
+{% endblock %}

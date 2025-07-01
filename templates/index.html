@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}الرئيسية | أدوات أونلاين{% endblock %}
+
+{% block content %}
+
+<div class="main-wrapper">
+  <h1 class="main-title">🛠️ أدوات أونلاين</h1>
+  <p class="subtitle">اختار الأداة اللي بغيتي تستعمل 👇</p>
+
+  <div class="tools-grid">
+    {% for tool in [
+      {'title': '🧮 حاسبة المعادلات البسيطة', 'desc': 'حل عمليات الجمع، الطرح، الضرب، القسمة.', 'url': '/calculator', 'color': '#9575cd', 'icon': 'fa-calculator'},
+      {'title': '🧮 معادلات من الدرجة 1 و 2', 'desc': 'حل المعادلات بخطوات.', 'url': '/equation-solver', 'color': '#7e57c2', 'icon': 'fa-equals'},
+      {'title': '🖼️ تحويل صورة إلى أيقونة', 'desc': 'حوّل PNG / JPG إلى .ico.', 'url': '/image-to-icon', 'color': '#6a1b9a', 'icon': 'fa-image'},
+      {'title': '📄 PDF إلى Word', 'desc': 'حوّل ملفات PDF إلى Word بسهولة.', 'url': '/pdf-to-word', 'color': '#512da8', 'icon': 'fa-file-pdf'},
+      {'title': '🔤 تحويل النصوص', 'desc': 'تعديل شكل النص (كبير، صغير...).', 'url': '/text-tools', 'color': '#5e35b1', 'icon': 'fa-font'},
+      {'title': '📅 حساب العمر', 'desc': 'احسب عمرك بالأيام و السنوات.', 'url': '/age-calculator', 'color': '#4527a0', 'icon': 'fa-birthday-cake'},
+      {'title': '🔊 نص إلى صوت', 'desc': 'حوّل النصوص إلى ملفات صوت.', 'url': '/text-to-speech', 'color': '#311b92', 'icon': 'fa-volume-up'},
+      {'title': '📱 إنشاء QR Code', 'desc': 'حوّل النصوص إلى QR قابل للتحميل.', 'url': '/qr-code', 'color': '#4a148c', 'icon': 'fa-qrcode'},
+      {'title': '📅 تحويل التاريخ', 'desc': 'تحويل ميلادي ↔ هجري.', 'url': '/date-converter', 'color': '#7b1fa2', 'icon': 'fa-calendar-alt'},
+      {'title': '📷 ضغط الصور', 'desc': 'قلّل حجم الصور بجودة عالية.', 'url': '/image-compress', 'color': '#6a1b9a', 'icon': 'fa-compress'},
+      {'title': '🎨 تحويل الألوان', 'desc': 'تحويل RGB ↔ HSL بدقة.', 'url': '/color-converter', 'color': '#8e24aa', 'icon': 'fa-palette'},
+      {'title': 'أداة فحص صحة البريد الإلكتروني', 'desc': 'أداة فحص صحة البريد الإلكتروني', 'url': '/email', 'color': '#5a189a', 'icon': 'fa-eye'}
+    ] %}
+    <div class="tool-card" style="--color: {{ tool.color }}">
+      <h3><i class="fas {{ tool.icon }}"></i> {{ tool.title }}</h3>
+      <p>{{ tool.desc }}</p>
+      <a href="{{ tool.url }}">جرب الآن</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  
+  .main-wrapper {
+    padding: 60px 40px;
+    width:100;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background:rgb(216, 214, 214);
+  }
+
+  .main-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #4b2995;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+  }
+
+  .tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 أعمدة بالضبط */
+  gap: 25px;
+}
+
+
+  .tool-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .tool-card h3 {
+    font-size: 1.2rem;
+    color: var(--color);
+    margin-bottom: 10px;
+  }
+
+  .tool-card p {
+    flex-grow: 1;
+    color: #444;
+    margin-bottom: 20px;
+  }
+
+  .tool-card a {
+    text-align: center;
+    display: inline-block;
+    background-color: var(--color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  .tool-card a:hover {
+    filter: brightness(110%);
+  }
+
+  @media (max-width: 600px) {
+    .main-title {
+      font-size: 2rem;
+    }
+    .subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>
+{% endblock %}

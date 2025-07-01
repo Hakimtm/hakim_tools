@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}تحويل التاريخ | أدوات أونلاين{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="text-center mb-4">📅 تحويل التاريخ</h2>
+
+  {% if result %}
+    <div class="alert alert-info text-center">{{ result }}</div>
+  {% endif %}
+
+  <div class="row">
+    <!-- تحويل من ميلادي إلى هجري -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white">من ميلادي إلى هجري</div>
+        <div class="card-body">
+          <form method="POST">
+            <input type="hidden" name="direction" value="to_hijri">
+            <div class="mb-3">
+              <label>اليوم</label>
+              <input type="number" name="g_day" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label>الشهر</label>
+              <input type="number" name="g_month" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label>السنة</label>
+              <input type="number" name="g_year" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">تحويل إلى هجري</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- تحويل من هجري إلى ميلادي -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header bg-secondary text-white">من هجري إلى ميلادي</div>
+        <div class="card-body">
+          <form method="POST">
+            <input type="hidden" name="direction" value="to_gregorian">
+            <div class="mb-3">
+              <label>اليوم</label>
+              <input type="number" name="h_day" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label>الشهر</label>
+              <input type="number" name="h_month" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label>السنة</label>
+              <input type="number" name="h_year" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-dark w-100">تحويل إلى ميلادي</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}أدوات أونلاين{% endblock %}</title>
+  
+  <!-- Bootstrap RTL CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  
+  <style>
+    body {
+      background: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    header {
+      background: #764ba2;
+      color: white;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      text-align: center;
+      user-select: none;
+    }
+    nav {
+      background: #5a3583;
+    }
+    nav a {
+      color: white;
+      padding: 12px 20px;
+      display: inline-block;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      border-radius: 6px;
+      margin: 5px 8px;
+    }
+    nav a:hover, nav a.active {
+      background: #4b2995;
+      color: #fff;
+      box-shadow: 0 0 8px rgba(75, 41, 149, 0.7);
+    }
+ main {
+  flex: 1;
+  padding: 40px 30px;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+    footer {
+      background: #764ba2;
+      color: white;
+      padding: 15px 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 500;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    أدوات أونلاين - Online Tools
+  </header>
+
+  <nav class="d-flex justify-content-center flex-wrap">
+    <a href="/" class="{% if request.path == '/' %}active{% endif %}">الرئيسية</a>
+    <a href="/pdf-to-word" class="{% if request.path == '/pdf-to-word' %}active{% endif %}">تحويل PDF إلى Word</a>
+    <a href="/text-tools" class="{% if request.path == '/text-tools' %}active{% endif %}">تحويل النصوص</a>
+    <a href="/age-calculator" class="{% if request.path == '/age-calculator' %}active{% endif %}">حساب العمر</a>
+    <a href="/text-to-speech" class="{% if request.path == '/text-to-speech' %}active{% endif %}">تحويل النص إلى صوت</a>
+    <a href="/qr-code" class="{% if request.path == '/qr-code' %}active{% endif %}">إنشاء QR Code لأي نص أو رابط</a>
+    <a href="/date-converter" class="{% if request.path == '/date-converter' %}active{% endif %}"> 📅 تحويل تاريخ ميلادي إلى هجري أوالعكس</a>
+    <a href="/date-converter" class="{% if request.path == '/date-converter' %}active{% endif %}"> 📅 تحويل تاريخ ميلادي إلى هجري أوالعكس</a>
+    <a href="/calculator" class="{% if request.path == '/calculator' %}active{% endif %}">🧮 حاسبة المعادلات  البسيطة</a>
+    <a href="/image-to-icon" class="{% if request.path == '/image-to-icon' %}active{% endif %}">  🖼️ تحويل صورة إلى أيقونة (.ico)</a>
+    <a href="/color-converter" class="btn btn-primary">🎨 محول الألوان </a>
+    <a href="/equation-solver" class="{% if request.path == '/equation-solver' %}active{% endif %}">🧮 حل المعادلات من الدرجة الأولى والثانية</a>
+    <a href="/image-compress" class="btn btn-outline-light">📷 ضغط الصور</a>
+    <a href="/email" class="btn btn-outline-light">أداة فحص صحة البريد الإلكتروني </a>
+
+  
+  </nav>
+
+  <main>
+    {% block content %}
+    <!-- محتوى كل صفحة هنا -->
+    {% endblock %}
+  </main>
+
+  <footer>
+    © 2025 أدوات أونلاين | Hakim
+  </footer>
+</body>
+</html>
