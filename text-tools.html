@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تحويل النصوص | أدوات أونلاين</title>
+  
+  <!-- Bootstrap RTL CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  
+  <style>
+    body {
+      background: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    header {
+      background: #764ba2;
+      color: white;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      text-align: center;
+      user-select: none;
+    }
+    nav {
+      background: #5a3583;
+    }
+    nav a {
+      color: white;
+      padding: 12px 20px;
+      display: inline-block;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      border-radius: 6px;
+      margin: 5px 8px;
+    }
+    nav a:hover, nav a.active {
+      background: #4b2995;
+      color: #fff;
+      box-shadow: 0 0 8px rgba(75, 41, 149, 0.7);
+    }
+ main {
+  flex: 1;
+  padding: 40px 30px;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+    footer {
+      background: #764ba2;
+      color: white;
+      padding: 15px 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 500;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <header style="display: flex; justify-content: space-between; align-items: center;">
+  <h6>أدوات أونلاين - Online Tools</h6>
+  اختر الأداة التي تريد استخدامها 👇
+  <h6>Hakim Tr</h6>
+</header>
+
+
+  <nav class="d-flex justify-content-center flex-wrap">
+    <a href="/" class="">الرئيسية</a>
+    <a href="/pdf-to-word.html" class="">تحويل PDF إلى Word</a>
+    <a href="/text-tools.html" class="active">تحويل النصوص</a>
+    <a href="/age-calculator.html" class="">حساب العمر</a>
+    <a href="/text-to-speech.html" class="">تحويل النص إلى صوت</a>
+    <a href="/qr-code.html" class="">إنشاء QR Code لأي نص أو رابط</a>
+    <a href="/date-converter.html" class=""> 📅 تحويل تاريخ ميلادي إلى هجري أوالعكس</a>
+    <a href="/date-converter.html" class=""> 📅 تحويل تاريخ ميلادي إلى هجري أوالعكس</a>
+    <a href="/calculator.html" class="">🧮 حاسبة المعادلات  البسيطة</a>
+    <a href="/image-to-icon.html" class="">  🖼️ تحويل صورة إلى أيقونة (.ico)</a>
+    <a href="/color-converter.html" class="btn btn-primary">🎨 محول الألوان </a>
+    <a href="/equation-solver.html" class="">🧮 حل المعادلات من الدرجة الأولى والثانية</a>
+    <a href="/image-compress.html" class="btn btn-outline-light">📷 ضغط الصور</a>
+    <a href="/email.html" class="btn btn-outline-light">أداة فحص صحة البريد الإلكتروني </a>
+
+  
+  </nav>
+
+  <main>
+    
+<div style="max-width: 700px; margin: auto; background: #fff; padding: 30px 25px; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.1);">
+  <h2 class="text-center mb-4" style="color:#4b2995; font-weight:700; font-size: 2rem;">
+    🔤 تحويل النصوص
+  </h2>
+
+  <form method="post" class="mb-4">
+    <div class="mb-3">
+      <label for="input_text" class="form-label fw-semibold">النص الأصلي:</label>
+      <textarea id="input_text" name="input_text" class="form-control" rows="6" required style="font-size: 1.1rem;"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label fw-semibold">اختار نوع التحويل:</label>
+      <select name="action" class="form-select" required style="font-size: 1.1rem;">
+        <option value="" disabled selected>-- اختر --</option>
+        <option value="uppercase" >تحويل إلى حروف كبيرة</option>
+        <option value="lowercase" >تحويل إلى حروف صغيرة</option>
+        <option value="capitalize" >تحويل أول حرف لكل كلمة إلى كبير</option>
+        <option value="remove_spaces" >إزالة المسافات الزائدة</option>
+        <option value="reverse" >عكس النص</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn w-100" style="background:#764ba2; color:white; font-weight:700; font-size:1.2rem; padding: 12px 0;">
+      🔁 تحويل النص
+    </button>
+  </form>
+
+  
+</div>
+
+  </main>
+
+  <footer>
+    © 2025 أدوات أونلاين | Hakim
+  </footer>
+</body>
+</html>

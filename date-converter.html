@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تحويل التاريخ | أدوات أونلاين</title>
+  
+  <!-- Bootstrap RTL CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  
+  <style>
+    body {
+      background: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    header {
+      background: #764ba2;
+      color: white;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      text-align: center;
+      user-select: none;
+    }
+    nav {
+      background: #5a3583;
+    }
+    nav a {
+      color: white;
+      padding: 12px 20px;
+      display: inline-block;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      border-radius: 6px;
+      margin: 5px 8px;
+    }
+    nav a:hover, nav a.active {
+      background: #4b2995;
+      color: #fff;
+      box-shadow: 0 0 8px rgba(75, 41, 149, 0.7);
+    }
+ main {
+  flex: 1;
+  padding: 40px 30px;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+    footer {
+      background: #764ba2;
+      color: white;
+      padding: 15px 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 500;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <header style="display: flex; justify-content: space-between; align-items: center;">
+  <h6>أدوات أونلاين - Online Tools</h6>
+  اختر الأداة التي تريد استخدامها 👇
+  <h6>Hakim Tr</h6>
+</header>
+
+
+  <nav class="d-flex justify-content-center flex-wrap">
+    <a href="/" class="">الرئيسية</a>
+    <a href="/pdf-to-word.html" class="">تحويل PDF إلى Word</a>
+    <a href="/text-tools.html" class="">تحويل النصوص</a>
+    <a href="/age-calculator.html" class="">حساب العمر</a>
+    <a href="/text-to-speech.html" class="">تحويل النص إلى صوت</a>
+    <a href="/qr-code.html" class="">إنشاء QR Code لأي نص أو رابط</a>
+    <a href="/date-converter.html" class="active"> 📅 تحويل تاريخ ميلادي إلى هجري أوالعكس</a>
+    <a href="/date-converter.html" class="active"> 📅 تحويل تاريخ ميلادي إلى هجري أوالعكس</a>
+    <a href="/calculator.html" class="">🧮 حاسبة المعادلات  البسيطة</a>
+    <a href="/image-to-icon.html" class="">  🖼️ تحويل صورة إلى أيقونة (.ico)</a>
+    <a href="/color-converter.html" class="btn btn-primary">🎨 محول الألوان </a>
+    <a href="/equation-solver.html" class="">🧮 حل المعادلات من الدرجة الأولى والثانية</a>
+    <a href="/image-compress.html" class="btn btn-outline-light">📷 ضغط الصور</a>
+    <a href="/email.html" class="btn btn-outline-light">أداة فحص صحة البريد الإلكتروني </a>
+
+  
+  </nav>
+
+  <main>
+    
+<div class="container mt-4">
+  <h2 class="text-center mb-4">📅 تحويل التاريخ</h2>
+
+  
+
+  <div class="row">
+    <!-- تحويل من ميلادي إلى هجري -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white">من ميلادي إلى هجري</div>
+        <div class="card-body">
+          <form method="POST">
+            <input type="hidden" name="direction" value="to_hijri">
+            <div class="mb-3">
+              <label>اليوم</label>
+              <input type="number" name="g_day" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label>الشهر</label>
+              <input type="number" name="g_month" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label>السنة</label>
+              <input type="number" name="g_year" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">تحويل إلى هجري</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- تحويل من هجري إلى ميلادي -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header bg-secondary text-white">من هجري إلى ميلادي</div>
+        <div class="card-body">
+          <form method="POST">
+            <input type="hidden" name="direction" value="to_gregorian">
+            <div class="mb-3">
+              <label>اليوم</label>
+              <input type="number" name="h_day" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label>الشهر</label>
+              <input type="number" name="h_month" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label>السنة</label>
+              <input type="number" name="h_year" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-dark w-100">تحويل إلى ميلادي</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  <footer>
+    © 2025 أدوات أونلاين | Hakim
+  </footer>
+</body>
+</html>
